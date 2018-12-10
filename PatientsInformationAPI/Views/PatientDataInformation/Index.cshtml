@@ -1,0 +1,83 @@
+﻿@model IList<PatientsInformationAPI.Models.PatientDataModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <h2>Patient Demographics</h2>
+    <br />
+    <br />
+    <h4>Patient List</h4>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info", @role = "button" })        
+    </p>
+
+@if (Model == null || Model.Count == 0)
+{
+    <h4>No Data found. Please create new Patient records</h4>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].ForeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].SurName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].DateOfBirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Gender)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.HomeNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MobileNumber)
+                    </th>
+                    <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ForeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SurName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.HomeNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MobileNumber)
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+</div>
+    
+
+

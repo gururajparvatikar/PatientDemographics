@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PatientDataBaseModelStoreContainer" CdmEntityContainer="PatientDataBaseEntities">
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="PatientDataBaseModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="WorkNumber" ColumnName="WorkNumber" />
+          <ScalarProperty Name="HomeNumber" ColumnName="HomeNumber" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="ForeName" ColumnName="ForeName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
