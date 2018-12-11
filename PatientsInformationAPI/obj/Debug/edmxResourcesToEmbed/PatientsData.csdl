@@ -2,6 +2,7 @@
 <Schema Namespace="PatientDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="PatientDataBaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Patients" EntityType="PatientDataBaseModel.Patient" />
+    <EntitySet Name="PatientsInformations" EntityType="PatientDataBaseModel.PatientsInformation" />
   </EntityContainer>
   <EntityType Name="Patient">
     <Key>
@@ -15,5 +16,12 @@
     <Property Name="HomeNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="WorkNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PatientsInformation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientsInformationXML" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

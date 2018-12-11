@@ -16,8 +16,8 @@ namespace PatientsInformationAPI.Models
 
         [Display(Name = "Surname")]
         [Required(ErrorMessage = "Surname required")]
-        [MaxLength(50, ErrorMessage = "Forename: Maximum 50 chars")]
-        [MinLength(2, ErrorMessage = "Forename: Minimum 2 chars")]
+        [MaxLength(50, ErrorMessage = "Surname: Maximum 50 chars")]
+        [MinLength(2, ErrorMessage = "Surname: Minimum 2 chars")]
         public string SurName { get; set; }
 
         [Display(Name = "Date of birth")]
@@ -30,12 +30,15 @@ namespace PatientsInformationAPI.Models
         public string Gender { get; set; }
 
         [Display(Name = "Home Number")]
+        [MaxLength(50, ErrorMessage = "HomeNumber: Maximum 50 chars")]
         public string HomeNumber { get; set; }
 
         [Display(Name = "Work Number")]
+        [MaxLength(50, ErrorMessage = "WorkNumber: Maximum 50 chars")]
         public string WorkNumber { get; set; }
 
         [Display(Name = "Mobile Number")]
+        [MaxLength(50, ErrorMessage = "MobileNumber: Maximum 50 chars")]
         public string MobileNumber { get; set; }
     }
 }

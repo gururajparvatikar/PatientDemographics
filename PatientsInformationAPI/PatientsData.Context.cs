@@ -26,5 +26,6 @@ namespace PatientsInformationAPI
         }
     
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<PatientsInformation> PatientsInformations { get; set; }
     }
 }

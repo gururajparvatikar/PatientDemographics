@@ -13,7 +13,15 @@
     <Property Name="WorkNumber" Type="varchar" MaxLength="255" />
     <Property Name="MobileNumber" Type="varchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="PatientsInformation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientsInformationXML" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="PatientDataBaseModelStoreContainer">
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientsInformation" EntityType="Self.PatientsInformation" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

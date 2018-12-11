@@ -22,8 +22,7 @@ namespace PatientsInformationAPI.Controllers
         // GET: /PatientDataInformation/
         public ActionResult Index()
         {            
-            var patients = repository.GetAll();
-            TempData["ControllerName"] = patients[0].ForeName;
+            var patients = repository.GetAll();            
             return View(patients);
         }
 

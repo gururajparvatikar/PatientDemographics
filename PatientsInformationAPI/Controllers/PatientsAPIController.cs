@@ -17,68 +17,21 @@ namespace PatientsInformationAPI.Controllers
         private PatientDataBaseEntities db = new PatientDataBaseEntities();
 
         // GET api/PatientsAPI
-        public IQueryable<Patient> GetPatients()
+        public IQueryable<PatientsInformation> GetPatients()
         {
-            return db.Patients;
+            return db.PatientsInformations;
         }
-
-        // GET api/PatientsAPI/5
-        [ResponseType(typeof(Patient))]
-        public IHttpActionResult GetPatient(int id)
-        {
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(patient);
-        }
-
-        // PUT api/PatientsAPI/5
-        public IHttpActionResult PutPatient(int id, Patient patient)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != patient.ID)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(patient).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PatientExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
+        
         // POST api/PatientsAPI
-        [ResponseType(typeof(Patient))]
-        public IHttpActionResult PostPatient(Patient patient)
+        [ResponseType(typeof(PatientsInformation))]
+        public IHttpActionResult PostPatientsInformation(PatientsInformation patient)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Patients.Add(patient);
+            db.PatientsInformations.Add(patient);
 
             try
             {
@@ -98,23 +51,7 @@ namespace PatientsInformationAPI.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = patient.ID }, patient);
         }
-
-        // DELETE api/PatientsAPI/5
-        [ResponseType(typeof(Patient))]
-        public IHttpActionResult DeletePatient(int id)
-        {
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
-
-            db.Patients.Remove(patient);
-            db.SaveChanges();
-
-            return Ok(patient);
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
